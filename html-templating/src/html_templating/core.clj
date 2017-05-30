@@ -6,4 +6,4 @@
   [x]
   (println x "Hello, World!"))
 
-(selmer/render-file "hello.html" {:name "World" :items (range 10)})
+(selmer/render "<p>Hello {{user.first}} {{user.last}}</p>" {:user {:first "John" :last "Doe"}})
