@@ -8,4 +8,4 @@
     (.toUpperCase (get-in content [:uppercase :content])))
   :endupppercase)
 
-(selmer/render-file "hello.html" {:items (range 2) :name "John"})
+(selmer/render-file "{{content|safea}" {})
