@@ -3,8 +3,9 @@
             [selmer.filters :as filters]))
 
 (selmer/add-tag!
-  :image
-  (fn [args context-map]
-    (str "<img src=" (first args) "/>")))
+  :uppercase
+  (fn [args context-map content]
+    (.toUpperCase (get-in content [:uppercase :content])))
+  :endupppercase)
 
-(selmer/render "{% image 'http://foo.com/logo.jpg' %}" {})
+(selmer/render "{% uppercase %}foo {{bar}} baz {% endupppercase %}" {:bar "injected"})
