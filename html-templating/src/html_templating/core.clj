@@ -8,4 +8,4 @@
     (.toUpperCase (get-in content [:uppercase :content])))
   :endupppercase)
 
-(selmer/render "{% uppercase %}foo {{bar}} baz {% endupppercase %}" {:bar "injected"})
+(selmer/render-file "hello.html" {:items (range 2) :name "John"})

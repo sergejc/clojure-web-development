@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My First Template</title>
-</head>
-<body>
-    <h2>Hello {{name}}</h2>
-    <ul>
-        {% for item in items %}
-        <li>{{item}}</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Hello {{name}}</h2>
+
+<ul>
+    {% for item in items %}
+    <li>{{item}}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
