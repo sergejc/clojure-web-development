@@ -1,9 +1,7 @@
 (ns html-templating.core
-  (:require [selmer.parser :as selmer]))
+  (:require [selmer.parser :as selmer]
+            [selmer.filters :as filters]))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(filters/add-filter! :emptly? empty?)
 
-(selmer/render "<p>Hello {{user.first}} {{user.last}}</p>" {:user {:first "John" :last "Doe"}})
+(selmer/render "{% if files|empty? %}no files{% else %}files{% endif %}" {:files []})
