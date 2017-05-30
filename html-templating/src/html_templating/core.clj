@@ -2,6 +2,9 @@
   (:require [selmer.parser :as selmer]
             [selmer.filters :as filters]))
 
-(filters/add-filter! :custom-filter (fn [x] [:safe (.toUpperCase x)]))
+(selmer/add-tag!
+  :image
+  (fn [args context-map]
+    (str "<img src=" (first args) "/>")))
 
-(selmer/render "{{x|custom-filter}}" {:x "<div>I'm safe</div>"})
+(selmer/render "{% image 'http://foo.com/logo.jpg' %}" {})
