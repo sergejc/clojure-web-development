@@ -13,13 +13,12 @@
   {:builds {:app {:source-paths ["src/cljs"]
                   :compiler {:output-to "target/cljsbuild/public/js/app.js"
                              :output-dir "target/cljsbuild/public/js/out"
-                             :main "guestbook.core"
+                             :main "clojurescript-guestbook.core"
                              :asset-path "/js/out"
                              :optimizations :none
                              :source-map true
                              :pretty-print true}}}}
-  :clean-targets
-  ^{:protect false}
+  :clean-targets ^{:protect false}
   [:target-path
    [:cljsbuild :builds :app :compiler :output-dir]
    [:cljsbuild :builds :app :compiler :output-to]]
